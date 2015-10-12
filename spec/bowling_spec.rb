@@ -16,4 +16,13 @@ it "returns 20 for all ones" do
     expect(@bowling.score).to eq(20)
 end
 
+it "returns 14 for simple spare" do
+	@bowling.roll(5)
+	@bowling.roll(5)
+	@bowling.roll(1)
+	@bowling.roll(2)
+    16.times {@bowling.roll(0)}
+    expect(@bowling.score).to eq(14)
+end
+
 end
