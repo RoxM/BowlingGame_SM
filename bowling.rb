@@ -13,7 +13,12 @@ end
 
 def score
 	@frames.each do
-		@score+=@rolls[@rollindex] + @rolls[@rollindex + 1]
+		if @rolls[@rollindex] + @rolls[@rollindex + 1] == 10
+			@score+= 10 + @rolls[@rollindex + 2]
+		else
+			@score+=@rolls[@rollindex] + @rolls[@rollindex + 1]
+		end
+		@rollindex+=2
 	end
 @score
 end
