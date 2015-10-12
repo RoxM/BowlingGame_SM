@@ -14,10 +14,10 @@ end
 def score
 	@frames.each do
 		if isStrike
-			@score+= 10 + @rolls[@rollindex + 1] + @rolls[@rollindex + 2]
+			@score+= 10 + bonusPoints
 			@rollindex+=1
 		elsif isSpare
-			@score+= 10 + @rolls[@rollindex + 2]
+			@score+= 10 + bonusPoints
 			@rollindex+=2
 		else
 			@score+=frameScore
@@ -37,6 +37,10 @@ end
 
 def isSpare
 	frameScore == 10 ? true : false
+end
+
+def bonusPoints
+	isStrike ? @rolls[@rollindex + 1] + @rolls[@rollindex + 2] : @rolls[@rollindex + 2]
 end
 
 end
