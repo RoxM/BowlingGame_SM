@@ -33,4 +33,14 @@ it "returns 16 for simple STRIKE" do
     expect(@bowling.score).to eq(18)
 end
 
+it "returns 150 for ALL SPARES" do
+    21.times {@bowling.roll(5)}
+    expect(@bowling.score).to eq(150)
+end
+
+it "returns 300 for ALL STRIKES" do
+    12.times {@bowling.roll(10)}
+    expect(@bowling.score).to eq(300)
+end
+
 end
